@@ -98,6 +98,8 @@ function deselectAnswers(){
 
 }
 
+//let i=0;
+
 submitBtn.addEventListener("click", ()=> {
     //check answer
     const answer = getSelected();
@@ -111,6 +113,7 @@ submitBtn.addEventListener("click", ()=> {
 
         currentQuiz++;
 
+        
         if (currentQuiz < quizData.length) {
 
             loadQuiz();
@@ -120,6 +123,29 @@ submitBtn.addEventListener("click", ()=> {
             <button onclick="location.reload()">repeat quiz</button>
             `;     
         }
+        
+        
+
+        /*
+            for(let i=0; i < (quizData.length +1); i++) {
+                loadQuiz();
+
+                if (i == quizData.length) {
+                quiz.innerHTML = `<h2>Your score ${score}/${quizData.length}</h2>
+                <button onclick="location.reload()">repeat quiz</button>
+                `;     
+                }
+            }
+
+          */
+         
+            /*
+            do{
+
+                loadQuiz();
+                i++;
+            }while(i<quizData.length)
+            */
     }
 });
 
