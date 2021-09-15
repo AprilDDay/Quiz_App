@@ -42,17 +42,30 @@ const c_text = document.getElementById("c_text");
 const d_text = document.getElementById("d_text");
 const submitBtn = document.getElementById("submit");
 
-let currentQuiz = 0;
+const max = quizData.length;
+
+let currentQuiz = getRandomInt(max);
 let score = 0;
 
 //need to load to get a_text to load
 loadQuiz();
 
+
+//add feature
+function getRandomInt(max) {
+    
+    let randomQ = Math.floor(Math.random()*max);
+    console.log("random number is " + randomQ);
+    return randomQ;
+    
+}
+
 function loadQuiz(){
     deselectAnswers();
+//    getRandomInt(max);
 
     const currentQuizData = quizData[currentQuiz];
-
+    //const currentQuizData = quizData[randomQ];
     questionEl.innerText = currentQuizData.question;
     a_text.innerText = currentQuizData.a;
     b_text.innerText = currentQuizData.b;
