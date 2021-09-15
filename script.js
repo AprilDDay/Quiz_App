@@ -45,8 +45,11 @@ const submitBtn = document.getElementById("submit");
 let currentQuiz = 0;
 let score = 0;
 
+//need to load to get a_text to load
+loadQuiz();
+
 function loadQuiz(){
-    deselectAnswer();
+    deselectAnswers();
 
     const currentQuizData = quizData[currentQuiz];
 
@@ -55,7 +58,8 @@ function loadQuiz(){
     b_text.innerText = currentQuizData.b;
     c_text.innerText = currentQuizData.c;
     d_text.innerText = currentQuizData.d;
-
+    console.log("function loadQuiz() is running.");
+    console.log("currentQuiz = " + currentQuiz);
 }
 
 function getSelected(){
@@ -65,20 +69,27 @@ function getSelected(){
         if(answerEl.checked){
             answer = answerEl.id;
         }
+        console.log("function getSelected() is running.");
+
     });
 
     return answer;
 }
 
-function deselectAnswer(){
+function deselectAnswers(){
     answerEls.forEach((answerEl) => {
         answerEl.checked = false;
     });
+
+    console.log("function deselectAnswer() is running.");
+
 }
 
 submitBtn.addEventListener("click", ()=> {
     //check answer
-    const answer = getSelection();
+    const answer = getSelected();
+
+    console.log("function getSelected() is running.");
 
     if(answer){
         if (answer === quizData[currentQuiz].correct){
@@ -92,7 +103,9 @@ submitBtn.addEventListener("click", ()=> {
             loadQuiz();
 
         } else {
-            quiz.innerHTML = `<h2>Your score ${score}/${quizData.length}</h2>`;     
+            quiz.innerHTML = `<h2>Your score ${score}/${quizData.length}</h2>
+            <button onclick="location.reload()">repeat quiz</button>
+            `;     
         }
     }
 });
