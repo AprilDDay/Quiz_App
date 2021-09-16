@@ -101,6 +101,8 @@ function deselectAnswers(){
 //let i=0;
 
 submitBtn.addEventListener("click", ()=> {
+    
+    for(let i=0; i< max; i++){
     //check answer
     const answer = getSelected();
 
@@ -111,7 +113,7 @@ submitBtn.addEventListener("click", ()=> {
             score++;
         }
 
-        currentQuiz++;
+        //currentQuiz++;
 
         
         if (currentQuiz < quizData.length) {
@@ -127,7 +129,7 @@ submitBtn.addEventListener("click", ()=> {
         
 
         /*
-            for(let i=0; i < (quizData.length +1); i++) {
+            for(let i=0; i < max; i++) {
                 loadQuiz();
 
                 if (i == quizData.length) {
@@ -147,6 +149,7 @@ submitBtn.addEventListener("click", ()=> {
             }while(i<quizData.length)
             */
     }
+}
 });
 
 //insta @codecrooksshanks 
