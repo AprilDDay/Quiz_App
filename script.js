@@ -63,7 +63,7 @@ function getRandomInt(max) {
 function loadQuiz(){
     deselectAnswers();
 //    getRandomInt(max);
-
+    let currentQuiz = getRandomInt(max);
     const currentQuizData = quizData[currentQuiz];
     //const currentQuizData = quizData[randomQ];
     questionEl.innerText = currentQuizData.question;
@@ -113,9 +113,17 @@ submitBtn.addEventListener("click", ()=> {
             score++;
         }
 
+        if(i<max){
+
+            loadQuiz();
+
+        }
+
         //currentQuiz++;
 
         
+        //original if-else statement
+        /*
         if (currentQuiz < quizData.length) {
 
             loadQuiz();
@@ -125,7 +133,7 @@ submitBtn.addEventListener("click", ()=> {
             <button onclick="location.reload()">repeat quiz</button>
             `;     
         }
-        
+        */
         
 
         /*
